@@ -1,0 +1,40 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+ 
+&usart2 {
+    dmas = <&dma1 6 4 0x28440 0x03>,
+        <&dma1 5 4 0x28480 0x03>;
+    dma-names = "tx", "rx";
+};
+ 
+
+
+&usart1 {
+    dmas = <&dma2 7 4 0x28440 0x03>,
+        <&dma2 5 4 0x28480 0x03>;
+    dma-names = "tx", "rx";
+    pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};
+
+ 
+ 
+&usart6 {
+    dmas = <&dma2 6 5 0x28440 0x03>,
+        <&dma2 1 5 0x28480 0x03>;
+    dma-names = "tx", "rx";
+    pinctrl-0 = <&usart6_tx_pc6 &usart6_rx_pc7>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};
+
+&dma1 {
+    status = "okay";
+};
+&dma2 {
+    status = "okay";
+};
+
+
